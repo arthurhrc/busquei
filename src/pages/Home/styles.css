@@ -44,3 +44,17 @@
     object-fit: contain;
     height: 125px;
 }
+
+@media (max-width: 600px) {
+    .home__header {
+        padding: 15px;
+    }
+
+    .home__header a {
+        font-size: 13px;
+    }
+
+    .home__body > img {
+        height: 80px;
+    }
+}

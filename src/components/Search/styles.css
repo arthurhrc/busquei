@@ -52,3 +52,10 @@
 .search__buttonHidden {
     display: none !important;
 }
+
+@media (max-width: 900px) {
+    .search__input {
+        width: 90vw;
+        max-width: 100%;
+    }
+}
