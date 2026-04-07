@@ -29,6 +29,10 @@ function SearchResult() {
         setStartIndex(1);
     }, [term]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [startIndex]);
+
     return (
         <>
             <div className="searchResult">
