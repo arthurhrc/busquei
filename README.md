@@ -1,5 +1,7 @@
 # Busquei
 
+![CI](https://github.com/arthurhrc/busquei/actions/workflows/ci.yml/badge.svg)
+
 Clone do Google Search desenvolvido como projeto da faculdade. A aplicação consome a API do Google Custom Search para exibir resultados de busca reais, com paginação e tratamento de erros.
 
 ## Tecnologias
