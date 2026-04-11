@@ -13,6 +13,10 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>Busquei</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.googleapis.com; font-src 'self'; object-src 'none'; base-uri 'self';"
+    />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
