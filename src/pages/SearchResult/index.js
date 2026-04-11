@@ -90,7 +90,24 @@ function SearchResult() {
                 </div>
 
                 {loading && (
-                    <p className="searchResult__loading">Buscando...</p>
+                    <div className="searchResult__items" data-testid="skeleton">
+                        {searchType === 'image' ? (
+                            <div className="searchResult__imageGrid">
+                                {[...Array(10)].map((_, i) => (
+                                    <div className="searchResult__imageSkeleton" key={i} />
+                                ))}
+                            </div>
+                        ) : (
+                            [...Array(5)].map((_, i) => (
+                                <div className="searchResult__skeletonItem" key={i}>
+                                    <div className="skeleton__url" />
+                                    <div className="skeleton__title" />
+                                    <div className="skeleton__text" />
+                                    <div className="skeleton__text skeleton__text--short" />
+                                </div>
+                            ))
+                        )}
+                    </div>
                 )}
 
                 {error && (

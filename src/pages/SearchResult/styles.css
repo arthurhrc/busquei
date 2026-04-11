@@ -91,10 +91,50 @@
     line-height: 1.58;
 }
 
-.searchResult__loading {
-    margin: 40px 240px;
-    color: var(--text-muted);
-    font-size: 14px;
+@keyframes shimmer {
+    0% { background-position: -800px 0; }
+    100% { background-position: 800px 0; }
+}
+
+.skeleton__url,
+.skeleton__title,
+.skeleton__text,
+.searchResult__imageSkeleton {
+    background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+.searchResult__skeletonItem {
+    margin: 40px 0;
+}
+
+.skeleton__url {
+    height: 14px;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.skeleton__title {
+    height: 22px;
+    width: 75%;
+    margin-bottom: 12px;
+}
+
+.skeleton__text {
+    height: 14px;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.skeleton__text--short {
+    width: 55%;
+}
+
+.searchResult__imageSkeleton {
+    height: 150px;
+    border-radius: 8px;
 }
 
 .searchResult__error {

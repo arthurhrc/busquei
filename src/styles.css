@@ -8,6 +8,8 @@
     --input-bg: #fff;
     --link-color: #1a0dab;
     --visited-color: #681da8;
+    --skeleton-base: #e8eaed;
+    --skeleton-highlight: #f8f8f8;
 }
 
 .dark {
@@ -20,6 +22,8 @@
     --input-bg: #303134;
     --link-color: #8ab4f8;
     --visited-color: #c58af9;
+    --skeleton-base: #3c4043;
+    --skeleton-highlight: #4a4e51;
 }
 
 * {
