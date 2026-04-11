@@ -1,36 +1,38 @@
 import { useState, useEffect } from "react";
 import { API_KEY, CONTEXT_KEY } from "../../keys";
 
-const useGoogleSearch = (term, startIndex = 1) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const useGoogleSearch = (term, startIndex = 1, searchType = 'web') => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!term) return;
+    useEffect(() => {
+        if (!term) return;
 
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
 
-      fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${term}&lr=lang_pt&start=${startIndex}`
-      )
-        .then((response) => response.json())
-        .then((result) => {
-          setData(result);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err);
-          setLoading(false);
-        });
-    };
+            const typeParam = searchType === 'image' ? '&searchType=image' : '';
 
-    fetchData();
-  }, [term, startIndex]);
+            fetch(
+                `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${encodeURIComponent(term)}&lr=lang_pt&start=${startIndex}${typeParam}`
+            )
+                .then((response) => response.json())
+                .then((result) => {
+                    setData(result);
+                    setLoading(false);
+                })
+                .catch((err) => {
+                    setError(err);
+                    setLoading(false);
+                });
+        };
 
-  return { data, loading, error };
+        fetchData();
+    }, [term, startIndex, searchType]);
+
+    return { data, loading, error };
 };
 
 export default useGoogleSearch;
