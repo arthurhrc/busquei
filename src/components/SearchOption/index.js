@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -13,5 +14,12 @@ function SearchOption({ title, icon, isActive, onClick }) {
         </div>
     )
 }
+
+SearchOption.propTypes = {
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.node,
+    isActive: PropTypes.bool,
+    onClick: PropTypes.func
+};
 
 export default SearchOption;

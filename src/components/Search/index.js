@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useStateValue } from '../../StateContext';
 import { actionTypes } from '../../reducer';
@@ -50,5 +51,9 @@ function Search({ hideButtons = false }) {
         </form>
     )
 }
+
+Search.propTypes = {
+    hideButtons: PropTypes.bool
+};
 
 export default Search;
