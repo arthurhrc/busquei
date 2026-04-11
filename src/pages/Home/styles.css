@@ -45,6 +45,47 @@
     height: 125px;
 }
 
+.home__history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    gap: 2px;
+}
+
+.home__historyLabel {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.home__historyItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-primary);
+    border-radius: 20px;
+    min-width: 260px;
+    justify-content: flex-start;
+    transition: background-color 0.15s;
+}
+
+.home__historyItem:hover {
+    background-color: var(--input-bg);
+}
+
+.home__historyIcon {
+    color: var(--text-muted);
+    font-size: 18px !important;
+}
+
 @media (max-width: 600px) {
     .home__header {
         padding: 15px;

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Search from '../../components/Search/index';
-import Busquei from '../../assets/busquei.png'
+import Busquei from '../../assets/busquei.png';
 import AppsIcon from '@material-ui/icons/Apps';
+import HistoryIcon from '@material-ui/icons/History';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import { Avatar, IconButton } from '@material-ui/core';
@@ -13,7 +14,13 @@ import { actionTypes } from '../../reducer';
 import './styles.css';
 
 function Home() {
-    const [{ darkMode }, dispatch] = useStateValue();
+    const [{ darkMode, searchHistory }, dispatch] = useStateValue();
+    const history = useHistory();
+
+    const handleHistorySearch = (term) => {
+        dispatch({ type: actionTypes.SET_SEARCH_TERM, term });
+        history.push('/search');
+    };
 
     return (
         <>
@@ -44,6 +51,22 @@ function Home() {
                     <div className="home__inputContainer">
                         <Search />
                     </div>
+
+                    {searchHistory.length > 0 && (
+                        <div className="home__history">
+                            <span className="home__historyLabel">Pesquisas recentes</span>
+                            {searchHistory.map(item => (
+                                <button
+                                    key={item}
+                                    className="home__historyItem"
+                                    onClick={() => handleHistorySearch(item)}
+                                >
+                                    <HistoryIcon className="home__historyIcon" />
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </>

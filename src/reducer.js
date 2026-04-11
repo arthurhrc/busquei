@@ -1,7 +1,8 @@
 export const initialState = {
     term: null,
     searchType: 'web',
-    darkMode: localStorage.getItem('darkMode') === 'true'
+    darkMode: localStorage.getItem('darkMode') === 'true',
+    searchHistory: JSON.parse(localStorage.getItem('searchHistory') || '[]')
 };
 
 export const actionTypes = {
@@ -12,11 +13,18 @@ export const actionTypes = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SET_SEARCH_TERM:
+        case actionTypes.SET_SEARCH_TERM: {
+            const history = [
+                action.term,
+                ...state.searchHistory.filter(t => t !== action.term)
+            ].slice(0, 6);
+            localStorage.setItem('searchHistory', JSON.stringify(history));
             return {
                 ...state,
-                term: action.term
-            }
+                term: action.term,
+                searchHistory: history
+            };
+        }
 
         case actionTypes.SET_SEARCH_TYPE:
             return {
@@ -24,13 +32,14 @@ const reducer = (state = initialState, action) => {
                 searchType: action.searchType
             }
 
-        case actionTypes.TOGGLE_DARK_MODE:
+        case actionTypes.TOGGLE_DARK_MODE: {
             const newDarkMode = !state.darkMode;
             localStorage.setItem('darkMode', newDarkMode);
             return {
                 ...state,
                 darkMode: newDarkMode
-            }
+            };
+        }
 
         default:
             return state;
