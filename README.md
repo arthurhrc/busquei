@@ -8,10 +8,15 @@ Clone do Google Search desenvolvido como projeto da faculdade. A aplicação con
 
 - Busca web com resultados reais via Google Custom Search API
 - Busca por imagens com grid de resultados
+- Histórico de pesquisas recentes na página inicial
 - Paginação de resultados
 - Dark mode com persistência via localStorage
-- Feedback de carregamento e tratamento de erros
+- Skeleton loading animado durante as requisições
+- Tratamento de erros da API e de rede
+- Error Boundary para erros de renderização
+- Cancelamento de requisições em voo com AbortController
 - Layout responsivo
+- Página 404
 
 ## Tecnologias
 
@@ -63,12 +68,14 @@ npm test
 ```
 src/
 ├── components/
+│   ├── ErrorBoundary/   # Captura erros de renderização
 │   ├── Search/          # Campo de busca reutilizável
 │   └── SearchOption/    # Abas de filtro da barra de resultados
 ├── hooks/
 │   └── useGoogleSearch/ # Hook que consome a API
 ├── pages/
-│   ├── Home/            # Página inicial
+│   ├── Home/            # Página inicial com histórico de buscas
+│   ├── NotFound/        # Página 404
 │   └── SearchResult/    # Página de resultados
 ├── reducer.js           # Gerenciamento de estado global
 └── StateContext.js      # Contexto React
