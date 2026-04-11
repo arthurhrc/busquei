@@ -6,6 +6,8 @@
 
 Clone do Google Search desenvolvido como projeto da faculdade. A aplicação consome a API do Google Custom Search para exibir resultados de busca reais.
 
+> **Aviso:** a chave da API está desativada no deploy público para evitar uso indevido, já que aplicações client-side expõem as credenciais no navegador. Para rodar localmente com resultados reais, configure suas próprias credenciais conforme a seção de configuração abaixo.
+
 ## Funcionalidades
 
 - Busca web com resultados reais via Google Custom Search API
