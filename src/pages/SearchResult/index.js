@@ -33,6 +33,11 @@ function SearchResult() {
     }, [term, searchType]);
 
     useEffect(() => {
+        if (term) document.title = `${term} — Busquei`;
+        return () => { document.title = 'Busquei'; };
+    }, [term]);
+
+    useEffect(() => {
         window.scrollTo(0, 0);
     }, [startIndex]);
 
