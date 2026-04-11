@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-function SearchOption({ title, icon }) {
+function SearchOption({ title, icon, isActive, onClick }) {
     return (
-        <div className="searchOption">
+        <div
+            className={`searchOption ${isActive ? 'searchOption--active' : ''}`}
+            onClick={onClick}
+        >
             {icon && icon}
-            <Link to="/">{title}</Link>
+            <span>{title}</span>
         </div>
     )
 }

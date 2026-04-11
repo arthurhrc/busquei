@@ -1,7 +1,8 @@
-.home { 
+.home {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: var(--bg);
 }
 
 .home__header {
@@ -14,23 +15,22 @@
 .home__header a {
     margin-right: 20px;
     text-decoration: inherit;
-    color: rgba(0, 0, 0, .87);
+    color: var(--text-primary);
     font-size: 15px;
 }
 
-.home__header a:hover{
+.home__header a:hover {
     text-decoration: underline;
 }
 
 .home__headerRight {
     display: flex;
     align-items: center;
-    min-width: 13vw;
-    justify-content: space-between;
+    gap: 16px;
 }
 
-.home__headerRight > .MuiAvatar-root {
-    margin: 0 20px;
+.home__headerRight .MuiIconButton-root {
+    color: var(--text-muted);
 }
 
 .home__body {
