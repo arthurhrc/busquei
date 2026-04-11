@@ -2,6 +2,8 @@
 
 ![CI](https://github.com/arthurhrc/busquei/actions/workflows/ci.yml/badge.svg)
 
+**[busquei-one.vercel.app](https://busquei-one.vercel.app)**
+
 Clone do Google Search desenvolvido como projeto da faculdade. A aplicação consome a API do Google Custom Search para exibir resultados de busca reais.
 
 ## Funcionalidades
