@@ -2,7 +2,16 @@
 
 ![CI](https://github.com/arthurhrc/busquei/actions/workflows/ci.yml/badge.svg)
 
-Clone do Google Search desenvolvido como projeto da faculdade. A aplicação consome a API do Google Custom Search para exibir resultados de busca reais, com paginação e tratamento de erros.
+Clone do Google Search desenvolvido como projeto da faculdade. A aplicação consome a API do Google Custom Search para exibir resultados de busca reais.
+
+## Funcionalidades
+
+- Busca web com resultados reais via Google Custom Search API
+- Busca por imagens com grid de resultados
+- Paginação de resultados
+- Dark mode com persistência via localStorage
+- Feedback de carregamento e tratamento de erros
+- Layout responsivo
 
 ## Tecnologias
 
@@ -33,7 +42,7 @@ REACT_APP_API_KEY=sua_api_key_aqui
 REACT_APP_CONTEXT_KEY=seu_context_key_aqui
 ```
 
-> Para obter as credenciais, acesse o [Google Cloud Console](https://console.cloud.google.com/) e crie um projeto com a Custom Search API habilitada.
+> Para obter as credenciais, acesse o [Google Cloud Console](https://console.cloud.google.com/) e crie um projeto com a Custom Search API habilitada. Em produção, restrinja a chave ao domínio do seu deploy.
 
 ## Como rodar
 
@@ -55,7 +64,7 @@ npm test
 src/
 ├── components/
 │   ├── Search/          # Campo de busca reutilizável
-│   └── SearchOption/    # Opções da barra de filtros
+│   └── SearchOption/    # Abas de filtro da barra de resultados
 ├── hooks/
 │   └── useGoogleSearch/ # Hook que consome a API
 ├── pages/
