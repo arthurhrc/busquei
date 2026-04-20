@@ -72,6 +72,30 @@
     color: var(--text-primary);
 }
 
+.home__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+}
+
+.home__footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+}
+
+.home__footer a:hover {
+    color: var(--text-primary);
+}
+
 @media (max-width: 600px) {
     .home__header {
         padding: 15px;
